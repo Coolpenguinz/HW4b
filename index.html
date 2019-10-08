@@ -42,9 +42,29 @@
 		var total_due = fries_due + hotdog_due + drink_due;
 
 		var total_due_after_promotion;
+		var discount = 0
 		if(total_due >= 20) {
-			total_due_after_promotion = total_due * 0.1;
+			discount = total_due * 0.1;
+			total_due_after_promotion = total_due - discount;
 		}
+		else total_due_after_promotion = total_due;
+		//Tax will always happen
+		var tax = total_due_after_promotion * 0.0625;
+		total_due_after_promotion = total_due_after_promotion - tax;
+
+		var total_items_ordered;
+		for(var y = 0; y < 3; y++) {
+			total_due_after_promotion += amount_array[y];
+		}
+		alert("Items Ordered = " + total_items_ordered + " \n"
+			  "You ordered " + amount_array[0] + " fries \n"
+			  "and " + amount_array[1] + " hotdogs \n"
+			  "and " + amount_array[2] + " drinks \n"
+			  "Your subtotal was " + total_due + " \n"
+			  "Your discount was " + discount + " \n"
+			  "Your tax was " + tax + " \n"
+			  "Your total was " + total_due_after_promotion + " \n"
+			)
 	</script>
 
 
