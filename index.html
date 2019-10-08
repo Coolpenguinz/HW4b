@@ -10,8 +10,41 @@
 		var hotdog_form = document.createElement("FORM");
 		var price_array = {fries: 2, hotdog: 3.25, drink: 1.5}
 		var amount_array = {fries: 0, hotdog: 0, drinkL 0}
-		
-		
+		//Adding the form to the page
+		hotdog_form.setAttribute("id", "order_quantity");
+		document.body.appendChild(hotdog_form);
+
+		//Making all the input boxes correct in the form
+		for(var z = 0; z < 3; z++) {
+			var textElement = document.createTextNode(z);
+			hotdog_form.appendChild(textElement);
+			var input = document.createElement("INPUT");
+			input.setAttribute("value," amount_array[z]);
+			input.setAttribute("id", z);
+			input.setAttribute("type", "text");
+		}
+		//This function fills the array with the user inputted quantities
+		function fill_quantitites() {
+			for(var x = 0, x < 3; x++) {
+				var quantity = document.getElementById(x).value;
+				amount_array[x] = quantity;
+			}
+		}
+
+		var button = document.createElement("BUTTON");
+		button.setAttribute{"onclick" , "fill_quantitites()"}
+		document.body.appendChild(button);
+
+		//Calculate amount due before any potential subtractors
+		var fries_due = price_array{'fries'} * amount_array{'fries'};
+		var hotdog_due = price_array{'hotdog'} * amount_array{'hotdog'};
+		var drink_due = price_array{'drink'} * amount_array{'drink'};
+		var total_due = fries_due + hotdog_due + drink_due;
+
+		var total_due_after_promotion;
+		if(total_due >= 20) {
+			total_due_after_promotion = total_due * 0.1;
+		}
 	</script>
 
 
